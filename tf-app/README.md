@@ -1,6 +1,7 @@
 ## Description  
 This module is used to create sample Application for AWS Solution Architech Associate exam
 
+
 It creates:
 - private instance with httpd
 - public instance with httpd
