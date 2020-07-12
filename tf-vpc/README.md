@@ -22,7 +22,9 @@ It creates:
 
 ## Inputs
 
-No input.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| deploy\_natgw | Deploy NAT gateway | `bool` | `false` | no |
 
 ## Outputs
 

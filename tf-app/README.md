@@ -28,4 +28,5 @@ No input.
 | Name | Description |
 |------|-------------|
 | private\_instance\_ip | n/a |
+| public\_instance\_dns | n/a |
 | public\_instance\_ip | n/a |

@@ -32,8 +32,11 @@ resource "aws_instance" "instance_public" {
 }
 
 resource "aws_instance" "instance_private" {
-  ami                         = local.ami
-  availability_zone           = "eu-north-1a"
+  for_each = toset(["alpha", "beta", "omega"])
+
+  ami               = local.ami
+  availability_zone = "eu-north-1a"
+
   ebs_optimized               = true
   instance_type               = local.instance_type
   monitoring                  = local.cloudwatch_detailed_monitoring
@@ -51,6 +54,6 @@ resource "aws_instance" "instance_private" {
 
   user_data = file("${path.module}/data/user_data.tpl")
 
-  tags = merge({ Name = "instance_private" }, local.tags)
+  tags = merge({ Name = "instance_private_${each.key}" }, local.tags)
 
 }
