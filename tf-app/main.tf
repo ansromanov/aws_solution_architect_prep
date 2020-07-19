@@ -32,7 +32,8 @@ resource "aws_instance" "instance_public" {
 }
 
 resource "aws_instance" "instance_private" {
-  for_each = toset(["alpha", "beta", "omega"])
+  for_each = toset(["alpha"])
+  # for_each = toset(["alpha", "beta", "omega"])
 
   ami               = local.ami
   availability_zone = "eu-north-1a"
