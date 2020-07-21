@@ -5,7 +5,8 @@ locals {
 
   vpc_cidr_block = data.aws_vpc.training.cidr_block
   allowed_ip_list = [
-    "188.242.43.66/32"
+    "188.242.43.66/32",
+    "188.170.72.168/32"
   ]
 
   tags = {

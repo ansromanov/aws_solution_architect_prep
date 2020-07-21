@@ -25,7 +25,7 @@ resource "aws_instance" "instance_public" {
     delete_on_termination = true
   }
 
-  user_data = file("${path.module}/data/user_data.tpl")
+  user_data = file("${path.module}/data/public_user_data.tpl")
 
   tags = merge({ Name = "instance_public" }, local.tags)
 
@@ -53,7 +53,7 @@ resource "aws_instance" "instance_private" {
     delete_on_termination = true
   }
 
-  user_data = file("${path.module}/data/user_data.tpl")
+  user_data = file("${path.module}/data/private_user_data.tpl")
 
   tags = merge({ Name = "instance_private_${each.key}" }, local.tags)
 
