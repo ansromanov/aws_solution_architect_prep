@@ -10,13 +10,13 @@ It creates:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12, < 0.13 |
-| aws | ~> 2.60 |
+| aws | 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.60 |
+| aws | 3.0.0 |
 | terraform | n/a |
 
 ## Inputs

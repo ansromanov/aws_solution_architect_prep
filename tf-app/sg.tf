@@ -41,8 +41,7 @@ resource "aws_security_group_rule" "public_server_app" {
   to_port           = 5000
   protocol          = "tcp"
   security_group_id = aws_security_group.public_server_access.id
-  cidr_blocks       = ["0.0.0.0/0"]
-  ipv6_cidr_blocks  = ["::/0"]
+  cidr_blocks       = concat([local.vpc_cidr_block], local.allowed_ip_list)
 }
 
 resource "aws_security_group_rule" "public_server_egress" {

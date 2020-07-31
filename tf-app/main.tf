@@ -6,6 +6,10 @@
 * - private instance with httpd
 * - public instance with httpd
 */
+resource "aws_iam_instance_profile" "ec2_allow_to_describe_instances" {
+  name = "ec2_allow_to_describe_instances"
+  role = aws_iam_role.ec2_allow_to_describe_instances.name
+}
 
 resource "aws_instance" "instance_public" {
   ami                         = local.ami
@@ -18,6 +22,7 @@ resource "aws_instance" "instance_public" {
   vpc_security_group_ids      = [aws_security_group.public_server_access.id]
   associate_public_ip_address = true
   source_dest_check           = true
+  iam_instance_profile        = aws_iam_instance_profile.ec2_allow_to_describe_instances.id
 
   root_block_device {
     volume_type           = "gp2"
@@ -32,8 +37,8 @@ resource "aws_instance" "instance_public" {
 }
 
 resource "aws_instance" "instance_private" {
-  for_each = toset(["alpha"])
-  # for_each = toset(["alpha", "beta", "omega"])
+  # for_each = toset(["alpha"])
+  for_each = toset(["alpha", "beta", "omega"])
 
   ami               = local.ami
   availability_zone = "eu-north-1a"
