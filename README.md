@@ -21,7 +21,7 @@ This will create VPC, private and public subnets.
 1. Create application
 
 ```sh
-cd tf-vpc
+cd tf-app
 terraform plan
 terraform apply
 ```
@@ -46,4 +46,4 @@ $ curl ec2-13-53-36-185.eu-north-1.compute.amazonaws.com:5000
 
 ```sh
 $ curl ec2-13-53-36-185.eu-north-1.compute.amazonaws.com:5000/metadata | jq .
-```k
+```
