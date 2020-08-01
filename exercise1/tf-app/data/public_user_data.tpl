@@ -7,8 +7,8 @@ service httpd start
 chkconfig httpd on
 
 git clone https://github.com/ansromanov/aws_solution_architect_prep.git
-sudo pip install -r aws_solution_architect_prep/python/requirements.txt
+sudo pip install -r aws_solution_architect_prep/exercise1/metadata-server/requirements.txt
 
-export FLASK_APP=aws_solution_architect_prep/python/ec2/main.py
+export FLASK_APP=aws_solution_architect_prep/exercise1/metadata-server/main.py
 export AWS_DEFAULT_REGION=eu-north-1
 flask run --host=0.0.0.0

@@ -6,7 +6,7 @@ Collection of infrastructure code prepared by me while preparing to AWS Solution
 
 ## Examples
 
-### Get private ip addresses for group of instances using metadata server
+### Example 1. Get private ip addresses for group of instances using metadata server
 
 1. Create network infrastructure
 
@@ -21,7 +21,7 @@ This will create VPC, private and public subnets.
 1. Create application
 
 ```sh
-cd tf-app
+cd exercise1/tf-app
 terraform plan
 terraform apply
 ```
