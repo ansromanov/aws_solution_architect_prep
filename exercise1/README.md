@@ -18,7 +18,7 @@
     terraform apply
     ```
 
-    This will created a set of private instances and public instance that run metadata serve.
+    This will created a set of private instances and public instance that run metadata server.
     After creating infrastructure, you could see public instance DNS and IP address:
 
     ```sh
@@ -39,4 +39,14 @@
 
     ```sh
     curl ec2-13-53-36-185.eu-north-1.compute.amazonaws.com:5000/metadata | jq .
+    ```
+
+1. Don't forget to destroy your infrastructure
+
+    ```sh
+    cd tf-app
+    terraform destroy
+
+    cd tf-vpc
+    terraform destroy
     ```
