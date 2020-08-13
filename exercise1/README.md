@@ -38,7 +38,7 @@
 1. Get private instances metadata
 
     ```sh
-    curl ec2-13-53-36-185.eu-north-1.compute.amazonaws.com:5000/metadata | jq .
+    curl -X GET "ec2-13-53-36-185.eu-north-1.compute.amazonaws.com:5000/metadata" | jq .
     ```
 
 1. Don't forget to destroy your infrastructure

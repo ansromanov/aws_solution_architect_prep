@@ -1,0 +1,38 @@
+/**
+* ## Description
+* This module is used to create sample Application for AWS Solution Architech Associate exam
+*
+* It creates:
+* - private instance with httpd
+*/
+resource "aws_iam_instance_profile" "ec2_allow_to_describe_instances" {
+  name = "ec2_allow_to_describe_instances"
+  role = aws_iam_role.ec2_allow_to_describe_instances.name
+}
+
+resource "aws_instance" "instance_private" {
+  for_each = toset(["alpha", "beta", "omega"])
+
+  ami               = local.ami
+  availability_zone = "eu-north-1a"
+
+  ebs_optimized               = true
+  instance_type               = local.instance_type
+  monitoring                  = local.cloudwatch_detailed_monitoring
+  key_name                    = "dbtsolarch"
+  subnet_id                   = data.aws_subnet.training_private.id
+  vpc_security_group_ids      = [aws_security_group.private_server_access.id]
+  source_dest_check           = true
+  associate_public_ip_address = false
+
+  root_block_device {
+    volume_type           = "gp2"
+    volume_size           = 8
+    delete_on_termination = true
+  }
+
+  user_data = file("${path.module}/data/private_user_data.tpl")
+
+  tags = merge({ Name = "instance_private_${each.key}" }, local.tags)
+
+}
