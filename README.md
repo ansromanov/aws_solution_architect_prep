@@ -8,4 +8,4 @@ Collection of infrastructure code prepared by me while preparing to AWS Solution
 
 [Example 1. Get private ip addresses for group of instances using metadata server](exercise1/README.md)
 
-[Example 2. Get private ip addresses for group of instances using API Gateway + Lambda](exercise1/README.md)
+[Example 2. Get private ip addresses for group of instances using API Gateway + Lambda](exercise2/README.md)
