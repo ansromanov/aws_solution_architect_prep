@@ -1,4 +1,4 @@
-# Exercise 1. Get private ip addresses for group of instances using API Gateway + Lambda
+# Exercise 2. Get private ip addresses for group of instances using API Gateway + Lambda
 
 1. Create network infrastructure
 
